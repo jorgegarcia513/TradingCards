@@ -1,0 +1,10 @@
+name: TradingCards
+version: ${project.version}
+main: com.sudo.tradingcards.TradingCards
+api-version: 1.17
+prefix: TradingCards
+authors: [ Jorge ]
+description: Trading Cards
+commands:
+  cards:
+    description: no

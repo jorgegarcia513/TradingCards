@@ -1,0 +1,10 @@
+TestCard:
+  name: Test Card
+  flavor text: flavor
+  rarity: common
+  is holo: true
+TestCard2:
+  name: Test Card 2
+  flavor text: flavor 2
+  rarity: rare
+  is holo: false
