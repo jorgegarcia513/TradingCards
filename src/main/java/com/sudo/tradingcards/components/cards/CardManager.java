@@ -8,12 +8,14 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class CardManager {
 
     private TradingCards plugin;
 
     private HashMap<String, Card> cards;
+    private CardItemBuilder cardItemBuilder;
 
     @Inject
     public CardManager(TradingCards plugin) {
@@ -44,22 +46,18 @@ public class CardManager {
         return this.cards;
     }
 
+    /**
+     * Get the ItemStack used to represent a card.
+     * @param cardIdentifier
+     * @return ItemStack
+     */
     public ItemStack getCardItem(String cardIdentifier) {
         Card c = this.getCard(cardIdentifier);
-        String cardName = c.getName();
-        ArrayList<String> lore = new ArrayList<String>();
-        lore.add("Description: " + c.getFlavorText());
-        lore.add("Rarity: " + c.getRarity());
+        this.cardItemBuilder = new CardItemBuilder();
+        return this.cardItemBuilder.buildCardItem(c);
+    }
 
-        ItemStack cardItem = new ItemStack(Material.PAPER);
-        ItemMeta cardItemMeta = cardItem.getItemMeta();
-
-        cardItemMeta.setDisplayName(cardName);
-        cardItemMeta.setUnbreakable(true);
-        cardItemMeta.setLore(lore);
-
-        cardItem.setItemMeta(cardItemMeta);
-
-        return cardItem;
+    public List<String> getCardIdentifiers() {
+        return new ArrayList<>(this.cards.keySet());
     }
 }

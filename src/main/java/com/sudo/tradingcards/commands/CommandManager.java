@@ -8,13 +8,19 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CommandManager implements CommandExecutor {
 
     private TradingCards plugin;
+    private List<String> commands;
 
     @Inject
     public CommandManager(TradingCards plugin) {
         this.plugin = plugin;
+        this.commands = new ArrayList<String>();
+        initCommands();
     }
 
     @Override
@@ -22,10 +28,10 @@ public class CommandManager implements CommandExecutor {
         AbstractCommand abstractCommand;
 
         switch (args[0]) {
-            case "getallcards":
+            case "showallcards":
                 abstractCommand = new GetAllCardsCommand(sender, command, label, args, this.plugin);
                 break;
-            case "getcard":
+            case "initcard":
                 abstractCommand = new GetCardCommand(sender, command, label, args, this.plugin);
                 break;
             case "give":
@@ -37,5 +43,15 @@ public class CommandManager implements CommandExecutor {
 
         }
         return abstractCommand.runCommand();
+    }
+
+    public void initCommands() {
+        this.commands.add("give");
+        this.commands.add("initcard");
+        this.commands.add("showallcards");
+    }
+
+    public List<String> getCommands() {
+        return this.commands;
     }
 }

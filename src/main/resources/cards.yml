@@ -1,10 +1,20 @@
 TestCard:
-  name: Test Card
-  flavor text: flavor
-  rarity: common
+  name: "&cTest Card"
+  flavor text: &fflavor
+  rarity: &7common
   is holo: true
 TestCard2:
-  name: Test Card 2
-  flavor text: flavor 2
-  rarity: rare
+  name: &cTest Card 2
+  flavor text: &fflavor 2
+  rarity: &9Rare
+  is holo: false
+TestCard3:
+  name: &cTest Card 3
+  flavor text: &fflavor 3
+  rarity: &dEpic
+  is holo: false
+TestCard4:
+  name: &cTest Card 4
+  flavor text: &fflavor 4
+  rarity: &6Legendary
   is holo: false

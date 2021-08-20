@@ -1,11 +1,14 @@
 package com.sudo.tradingcards.components.cards;
 
+import org.bukkit.ChatColor;
+
 public class Card {
 
     private String name;
     private String flavorText;
     private String rarity;
     private boolean isHolo;
+    private ChatColor color;
 
     //TODO: Image stuff
 
@@ -30,5 +33,15 @@ public class Card {
 
     public boolean getIsHolo() {
         return this.isHolo;
+    }
+
+    public void setColor() {
+        switch (rarity) {
+            case "common":
+        }
+    }
+
+    public ChatColor getColor() {
+        return color;
     }
 }
